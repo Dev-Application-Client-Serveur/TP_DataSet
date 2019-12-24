@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP_DataSet.dbTableAdapters;
 
 namespace TP_DataSet
 {
@@ -17,19 +18,16 @@ namespace TP_DataSet
             InitializeComponent();
         }
 
-        private void traineesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void TraineeManager_Load(object sender, EventArgs e)
         {
-            this.Validate();
-            this.traineesBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.db);
 
         }
 
-        private void TraineeManager_Load(object sender, EventArgs e)
+        private void bt_search_Click(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'db.Trainees'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.traineesTableAdapter.Fill(this.db.Trainees);
-
+            this.traineesByNameRowBindingSource.DataSource =
+                new TraineesByNameTableAdapter()
+                .GetDataByName(this.txt_firstname.Text);
         }
     }
 }

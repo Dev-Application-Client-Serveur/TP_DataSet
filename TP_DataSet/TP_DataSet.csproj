@@ -91,6 +91,7 @@
     <None Include="db.xss">
       <DependentUpon>db.xsd</DependentUpon>
     </None>
+    <None Include="Properties\DataSources\db.TraineesByNameRow.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
